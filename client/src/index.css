@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Inconsolata:wght@200..900&family=Nabla&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inconsolata;
+  color: #faedcd;
+}
+
+:root {
+  --bg-color : #000814f7;
+  --text-color : #faedcd;
+  --bg-color2 : #023047e9;
+}
+
+#root{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  width: 100vw;
+  padding-top: 5vh;
+  background-color: var(--bg-color);
+}
+
+.todo-list{
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: var(--bg-color2);
+  box-shadow: 0 0 2px var(--text-color);
+  width: 55vw;
+}
+
+h2{
+  color: var(--text-color);
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #bcbcbc96;
+  width: fit-content;
+  padding-bottom: 3px;
+}
+
+.inputBox{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.inputBox input{
+  padding: 10px 5px;
+  width: 90%;
+  border: none;
+  outline: none;
+  background-color: var(--bg-color);
+  border-radius: 5px;
+  font-weight: 550;
+
+  &:focus{
+    outline: 2px solid rgb(54, 54, 101);
+  }
+}
+
+.inputBox button{
+  background-color: var(--bg-color);
+  padding: 8px 15px;
+  margin-left: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.todos{
+  background-color: var(--bg-color);
+  padding: 15px 10px;
+  border-radius: 5px;
+}
+
+.todos h3{
+  font-size: 1.3em;
+  color: rgb(205, 200, 209);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.todos h3 svg,.todos ul li svg{
+  margin-right: 5px;
+}
+
+.todos ul li svg{
+  font-size: 25px;
+}
+
+.todos ul{
+  list-style-type: none;
+}
+
+.todos ul li{
+  margin-bottom: 15px;
+  background-color: var(--bg-color2);
+  padding: 10px 5px;
+  border-radius: 5px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todos ul li:last-child{
+  margin-bottom: 0;
+}
+
+.todos ul li div{
+  display: flex;
+  align-items: center;
+}
+
+.todos ul li div button{
+  background-color: var(--bg-color);
+  padding: 5px;
+  margin-left: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todos ul li div button svg {
+  font-size: 20px;
+  opacity: 0.7;
+}
