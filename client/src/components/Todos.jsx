@@ -22,7 +22,7 @@ const Todos = () => {
         )}
         {todos.length !== 0 &&
           todos.map((todo, index) => (
-            <li>
+            <li key={index}>
               <div>
                 <IoListCircleOutline />
                 <span>{todo}</span>

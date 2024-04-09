@@ -1,6 +1,6 @@
 import InputBox from "./components/InputBox"
 import Todos from "./components/Todos"
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 
 export const todoReducer = (state, action) => {
   switch (action.type) {
@@ -18,6 +18,13 @@ export const todoContext = createContext()
 
 const App = () => {
   const [state, dispatch] = useReducer(todoReducer, [])
+
+  useEffect(() => {
+    const storedTodos = localStorage.getItem("todos");
+    if (storedTodos) {
+      dispatch({ type: "SET_TODOS", payload: JSON.parse(storedTodos) });
+    }
+  }, [dispatch]);
 
   return (
     <div className="todo-list">
