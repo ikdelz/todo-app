@@ -4,26 +4,24 @@ import { todoContext } from "../App.jsx";
 
 const InputBox = () => {
   const { dispatch, state: todos } = useContext(todoContext);
-  const [todo, setTodo] = useState("");
+  const [todo, setTodo] = useState(null);
 
-  const addTodo = () => {
-    if (!todo.trim()) {
-      alert("Please add a new todo!");
-      return;
+  const addTodo = async() => {
+    const res = await fetch('http://localhost:8080/todos', {
+      method:"POST",
+      headers: { "Content-Type" : "application/json"},
+      body : JSON.stringify({ todo })
+    })
+    const json = await res.json()
+
+    if (res.ok) {
+      dispatch({ type: "ADD_TODO", payload: json })
     }
 
-    if (todos.some((item) => item === todo)) {
-      alert("Todo already exists!");
-      return;
+    if (!res.ok) {
+      alert(json.error)
     }
-
-    dispatch({ type: "ADD_TODO", payload: todo });
-    setTodo("");
   };
-
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
 
   return (
     <div className="inputBox">

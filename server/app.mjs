@@ -1,16 +1,19 @@
-import express from "express"
+import express, { json } from "express"
 import dotenv from "dotenv"
 import cors from "cors"
 import mongoose from "mongoose"
+import todoRoutes from './routes/todoRoutes.mjs'
 
 const app = express()
 dotenv.config()
 
 // Middlewares
+app.use(json())
 app.use(cors({
   origin: "http://localhost:5173",
   credentials: true,
 }))
+app.use(todoRoutes)
 
 app.listen(process.env.PORT, async(err) => {
   if (err) {
@@ -22,7 +25,7 @@ app.listen(process.env.PORT, async(err) => {
   // DB connection
   try {
     const conn = await mongoose.connect(process.env.DB_URI)
-    console.log(`Connected on /= ${conn.connection.host} =/`)
+    console.log(`Connected on => ${conn.connection.host}`)
   } catch (error) {
     console.log("Error connecting to MongoDb " + error.message)
   }

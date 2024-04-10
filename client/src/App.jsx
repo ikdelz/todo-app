@@ -7,6 +7,9 @@ export const todoReducer = (state, action) => {
     case "ADD_TODO":
       return  [...state, action.payload];
 
+    case "SET_TODO":
+      return action.payload;
+      
     case "REMOVE_TODO":
       return state.filter((todo) => todo !== action.payload);
     
@@ -18,13 +21,6 @@ export const todoContext = createContext()
 
 const App = () => {
   const [state, dispatch] = useReducer(todoReducer, [])
-
-  useEffect(() => {
-    const storedTodos = localStorage.getItem("todos");
-    if (storedTodos) {
-      dispatch({ type: "SET_TODOS", payload: JSON.parse(storedTodos) });
-    }
-  }, [dispatch]);
 
   return (
     <div className="todo-list">
