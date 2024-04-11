@@ -41,7 +41,7 @@ const Todos = () => {
   }
 
   const handleDone = (index) => {
-    setDone(true);
+    setDone(!done);
     setDoneIndex(index)
   }
 
