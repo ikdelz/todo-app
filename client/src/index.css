@@ -133,6 +133,21 @@ h2{
   align-items: center;
 }
 
+.todos ul li div input {
+  padding: 7px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  width: 45vw;
+  border: none;
+  outline: 1px solid var(--bg-color2);
+  border-radius: 5px;
+  font-weight: 450;
+}
+
+.todos ul li div input:focus{
+  outline: 2px solid #faedcd23;
+}
+
 .todos ul li div button{
   background-color: var(--bg-color);
   padding: 5px;

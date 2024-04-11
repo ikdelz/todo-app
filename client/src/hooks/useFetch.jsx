@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { todoContext } from "../App";
 
 const useFetch = (url) => {
-  const { dispatch } = useContext(todoContext)
+  const { dispatch, state: todos } = useContext(todoContext)
   // states
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")

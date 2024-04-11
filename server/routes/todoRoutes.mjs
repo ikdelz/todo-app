@@ -50,4 +50,47 @@ router.post('/todos', async (req, res) => {
   }
 })
 
+/**
+ * @DELETE /todos/:id
+ * Endpont to delete a todo
+*/
+router.delete('/todos/:id', async (req, res) => {
+  const { id } = req.params
+
+  try {
+    const deletedTodo = await Todo.findByIdAndDelete(id)
+
+    if (!deletedTodo) {
+      throw new Error("Something went wrong!")
+    }
+
+    return res.status(200).json({message: "Todo deleted successfully", deletedTodo})
+  } catch (error) {
+    if (error.name === "CastError") {
+      return res.status(400).json({ error: "The todo you are trying to look for does not exist" })
+    }
+    return res.status(400).json({ error: error.message })
+  }
+})
+
+router.put('/todos/:id', async (req, res) => {
+  const { id } = req.params
+
+  try {
+    const todo = await Todo.findByIdAndUpdate(id, req.body)
+    if (!todo) {
+      throw new Error("Something went wrong!")
+    }
+
+    const updatedTodo = await Todo.findById(id)
+
+    return res.status(200).json({ message: "Todo updated successfully", updatedTodo })
+  } catch (error) {
+    if (error.name === "CastError") {
+      return res.status(400).json({ error: "The todo you are trying to look for does not exist" })
+    }
+    return res.status(400).json({ error: error.message })
+  }
+})
+
 export default router

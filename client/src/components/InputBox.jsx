@@ -4,7 +4,7 @@ import { todoContext } from "../App.jsx";
 
 const InputBox = () => {
   const { dispatch, state: todos } = useContext(todoContext);
-  const [todo, setTodo] = useState(null);
+  const [todo, setTodo] = useState("");
 
   const addTodo = async() => {
     const res = await fetch('http://localhost:8080/todos', {
