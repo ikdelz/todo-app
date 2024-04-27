@@ -10,7 +10,7 @@ dotenv.config()
 // Middlewares
 app.use(json())
 app.use(cors({
-  origin: process.env.SERVER_URI,
+  origin: "https://todo-app-sfjf.onrender.com",
   credentials: true,
 }))
 app.use(todoRoutes)
