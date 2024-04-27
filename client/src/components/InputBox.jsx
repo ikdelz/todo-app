@@ -7,7 +7,7 @@ const InputBox = () => {
   const [todo, setTodo] = useState("");
 
   const addTodo = async() => {
-    const res = await fetch('http://localhost:8080/todos', {
+    const res = await fetch('https://todo-app-sfjf.onrender.com/todos', {
       method:"POST",
       headers: { "Content-Type" : "application/json"},
       body : JSON.stringify({ todo })
