@@ -11,7 +11,7 @@ import { useFetch } from "../hooks/useFetch";
 const Todos = () => {
   const { dispatch, state: todos } = useContext(todoContext);
   
-  const { error, isLoading } = useFetch("http://localhost:8080/todos");
+  const { error, isLoading } = useFetch("https://todo-app-sfjf.onrender.com/todos");
 
   // states
   const [editIndex, setEditIndex] = useState(null)
@@ -21,7 +21,7 @@ const Todos = () => {
 
   const handleDelete = async(id) => {
     try {
-      const res = await fetch(`http://localhost:8080/todos/${id}`, {
+      const res = await fetch(`https://todo-app-sfjf.onrender.com/todos/${id}`, {
         method: "DELETE",
       });
       const json = await res.json()
@@ -48,7 +48,7 @@ const Todos = () => {
   const handleSave = async(index, id) => {
     setEditIndex(null);
     try {
-      const res = await fetch(`http://localhost:8080/todos/${id}`, {
+      const res = await fetch(`https://todo-app-sfjf.onrender.com/todos/${id}`, {
         method: "PUT",
         headers: { "Content-Type" : "application/json"},
         body : JSON.stringify({ todo: updatedTodo })
