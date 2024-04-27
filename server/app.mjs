@@ -9,7 +9,9 @@ dotenv.config()
 
 // Middlewares
 app.use(json())
-app.use(cors())
+app.use(cors({
+  origin: 'https://elise-todo.netlify.app'
+}));
 app.use(todoRoutes)
 
 app.listen(process.env.PORT, async(err) => {
