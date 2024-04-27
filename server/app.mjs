@@ -20,7 +20,7 @@ app.listen(process.env.PORT, async(err) => {
     console.log(err.message)
     return
   }
-  console.log(`Server initiated on port ${process.env.PORT}`)
+  console.log(`Server initiated on port ${process.env.PORT || 8081}`)
 
   // DB connection
   try {
