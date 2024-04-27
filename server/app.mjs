@@ -10,7 +10,7 @@ dotenv.config()
 // Middlewares
 app.use(json())
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: process.env.SERVER_URI,
   credentials: true,
 }))
 app.use(todoRoutes)
