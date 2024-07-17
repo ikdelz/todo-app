@@ -10,7 +10,8 @@ dotenv.config()
 // Middlewares
 app.use(json())
 app.use(cors({
-  origin: 'https://elise-todo-app.vercel.app/'
+  origin: 'https://elise-todo-app.vercel.app',
+  credentials: true,
 }));
 app.use(todoRoutes)
 
